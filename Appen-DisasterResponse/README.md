@@ -30,8 +30,8 @@ The first part of your data pipeline is the Extract, Transform, and Load process
 - read each datasets into pandas dataframe
 - clean the catogories dataset, and then store it in a SQLite database. We expect you to do the data cleaning with pandas. To load the data into an SQLite database, you can use the pandas dataframe .to_sql() method, which you can use with an SQLAlchemy engine.
 ![Screen Shot 2022-01-21 at 7 56 06 AM](https://user-images.githubusercontent.com/66845704/150539505-db037b07-39b8-4bc1-95fa-b0382d91ca52.png)
-
-
+Here is how the transformed data set is
+![Screen Shot 2022-01-21 at 8 02 44 AM](https://user-images.githubusercontent.com/66845704/150540299-5c8b6f99-eb37-4bbd-93f2-cdbb90c45e81.png)
 
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
