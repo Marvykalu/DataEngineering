@@ -1,4 +1,5 @@
 # Disaster Response Pipeline Project
+![Screen Shot 2022-01-21 at 12 30 13 PM](https://user-images.githubusercontent.com/66845704/150581242-542c67be-91c5-4097-8bc1-d8499f35b0ae.png)
 
 ## Introduction
 
@@ -39,6 +40,10 @@ To arrive at the transformed datasets, pythons **str.split** method was used to 
 
 ![Screen Shot 2022-01-21 at 11 10 25 AM](https://user-images.githubusercontent.com/66845704/150570245-1785719e-d90f-4b6b-aa06-94330484ec87.png)
  
+and the distribution of the categories is as shown below:
+
+![Screen Shot 2022-01-21 at 12 31 23 PM](https://user-images.githubusercontent.com/66845704/150581383-3bf57fd3-bb04-4416-bcb2-659acbc01e9b.png)
+
 Then we used the first row in the `categories` dataframe to extract a list of new column names for categories. Finally we converted category values to just numbers 0 or 1 by performing indexing and including .str method after the series. Therefore, we resulted at the merged dataframe.
 
 
@@ -51,6 +56,9 @@ To load the data into an SQLite database, we used the pandas dataframe .to_sql()
 
 
 ### Machine Learning pipeline
+
+Please view the python script [train_classifier.py](https://github.com/Marvykalu/DataEngineering/tree/main/Appen-DisasterResponse/models), you can follow the work through of the Machine Learning pipeline in [Machine lEARNING_Pipeline.ipynb](https://github.com/Marvykalu/DataEngineering/tree/main/Appen-DisasterResponse/pipeline_notebooks). 
+
 For the machine learning portion,
 - we split the data into a training set and a test set. 
 - Then, created a machine learning pipeline that uses NLTK, as well as scikit-learn's Pipeline and GridSearchCV to output a final model that uses the message column to predict classifications for 36 categories (multi-output classification). 
@@ -60,13 +68,18 @@ For the machine learning portion,
 
 -- Then we created a machine pipeline that takes in the `message` column as input and output classification results on the other 36 categories in the dataset. Since there are multiple target variables, the [MultiOutputClassifier](http://scikit-learn.org/stable/modules/generated/sklearn.multioutput.MultiOutputClassifier.html) with RandomClassifier was helpful for our prediction. Finally we used GridSearchCVto output a final model.
 
+Below is a screenshot of classification reports of some of the categories.
 ![Screen Shot 2022-01-21 at 12 17 31 PM](https://user-images.githubusercontent.com/66845704/150579697-6a3297b1-15c9-43a4-871f-119e3f787004.png)
 
-![Screen Shot 2022-01-21 at 12 19 09 PM](https://user-images.githubusercontent.com/66845704/150579715-ff3e13a7-2afc-4948-abc2-46c991a260ee.png)
+The optimised model is:
+
+![Screen Shot 2022-01-21 at 12 19 09 PM](https://user-images.githubusercontent.com/66845704/150580164-cd212113-20c1-4427-9f34-bcf6a7168fa9.png)
+
 
 - Finally, we exported the model to a pickle file
 
-### Instructions:
+### Instructions for Deployment:
+
 1. Run the following commands in the project's root directory to set up your database and model.
 
     - To run ETL pipeline that cleans data and stores in database
