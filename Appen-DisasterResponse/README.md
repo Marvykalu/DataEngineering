@@ -27,12 +27,23 @@ The first part of your data pipeline is the Extract, Transform, and Load process
 
 
 #### Steps
-- read each datasets into pandas dataframe
-- clean the catogories dataset, and then store it in a SQLite database. We expect you to do the data cleaning with pandas. To load the data into an SQLite database, you can use the pandas dataframe .to_sql() method, which you can use with an SQLAlchemy engine.
+- read each datasets into pandas dataframe. Below is an image of the raw datasets
+
 ![Screen Shot 2022-01-21 at 7 56 06 AM](https://user-images.githubusercontent.com/66845704/150539505-db037b07-39b8-4bc1-95fa-b0382d91ca52.png)
-Here is how the transformed data set is
+
+- clean the catogories dataset: Below is an image of merged datasets after transformation 
+
 ![Screen Shot 2022-01-21 at 8 02 44 AM](https://user-images.githubusercontent.com/66845704/150540299-5c8b6f99-eb37-4bbd-93f2-cdbb90c45e81.png)
 
+To arrive at the transformed datasets, pythons **str.split** method was used to create the 36 individual disaster response categories from the `categories` dataframe as shown in the figure below
+
+![Screen Shot 2022-01-21 at 11 10 25 AM](https://user-images.githubusercontent.com/66845704/150570245-1785719e-d90f-4b6b-aa06-94330484ec87.png)
+ 
+Then we used the first row in the `categories` dataframe to extract a list of new column names for categories. finally we convert category values to just numbers 0 or 1 by performing indexing and including .str method after the series. Then we merged the resuting catagories dataframe with messages dataframe.
+
+A little data cleaning was done on the combined dataframe such as removing columns with only one data value, and filtering dataframe to exclude unwanted data values in some columns.
+
+- and then store it in a SQLite database. 
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
 
