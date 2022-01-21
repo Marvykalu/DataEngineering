@@ -23,7 +23,7 @@ We have two csv data sets: One disaster_messages.csv contains real messages that
 Here we will give you details of the steps during the data processing and modelling 
 
 ### ETL pipeline
-The first part of your data pipeline is the Extract, Transform, and Load process. Please view the python script [process_data.py](https://github.com/Marvykalu/DataEngineering/tree/main/Appen-DisasterResponse/data), you can follow the work through of the ETL pipeline in [ETL_Pipeline.ipynb] (https://github.com/Marvykalu/DataEngineering/tree/main/Appen-DisasterResponse/pipeline_notebooks). 
+The first part of your data pipeline is the Extract, Transform, and Load process. Please view the python script [process_data.py](https://github.com/Marvykalu/DataEngineering/tree/main/Appen-DisasterResponse/data), you can follow the work through of the ETL pipeline in [ETL_Pipeline.ipynb](https://github.com/Marvykalu/DataEngineering/tree/main/Appen-DisasterResponse/pipeline_notebooks). 
 
 
 #### Steps
