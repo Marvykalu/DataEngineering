@@ -23,7 +23,7 @@ We have two csv data sets: One disaster_messages.csv contains real messages that
 Here we will give you details of the steps during the data processing and modelling 
 
 ### ETL pipeline
-The first part of your data pipeline is the Extract, Transform, and Load process. Please view the python script [process_data.py](https://github.com/Marvykalu/DataEngineering/tree/main/Appen-DisasterResponse/data), you can follow the work through of the ETL pipeline in [ETL_Pipeline.ipynb](https://github.com/Marvykalu/DataEngineering/tree/main/Appen-DisasterResponse/pipeline_notebooks). 
+The first part of your data pipeline is the Extract, Transform, and Load (ETL) process. Please view the python script [process_data.py](https://github.com/Marvykalu/DataEngineering/tree/main/Appen-DisasterResponse/data), you can follow the work through of the ETL pipeline in [ETL_Pipeline.ipynb](https://github.com/Marvykalu/DataEngineering/tree/main/Appen-DisasterResponse/pipeline_notebooks). 
 
 
 #### Steps
@@ -39,11 +39,26 @@ To arrive at the transformed datasets, pythons **str.split** method was used to 
 
 ![Screen Shot 2022-01-21 at 11 10 25 AM](https://user-images.githubusercontent.com/66845704/150570245-1785719e-d90f-4b6b-aa06-94330484ec87.png)
  
-Then we used the first row in the `categories` dataframe to extract a list of new column names for categories. finally we convert category values to just numbers 0 or 1 by performing indexing and including .str method after the series. Then we merged the resuting catagories dataframe with messages dataframe.
+Then we used the first row in the `categories` dataframe to extract a list of new column names for categories. Finally we converted category values to just numbers 0 or 1 by performing indexing and including .str method after the series. Therefore, we resulted at the merged dataframe.
 
-A little data cleaning was done on the combined dataframe such as removing columns with only one data value, and filtering dataframe to exclude unwanted data values in some columns.
 
-- and then store it in a SQLite database. 
+A little data cleaning was done on the combined dataframe such as removing duplicates, columns with only one data value, and filtering dataframe to exclude unwanted data values in some columns.
+
+- store transformed data in an SQLite database. 
+
+To load the data into an SQLite database, we used the pandas dataframe .to_sql() method, with an SQLAlchemy engine (see code snippet)
+![Screen Shot 2022-01-21 at 11 26 54 AM](https://user-images.githubusercontent.com/66845704/150572651-506cb3a1-1bc9-4b5e-b0e8-ff5ffd313072.png)
+
+
+### Machine Learning pipeline
+For the machine learning portion,
+- we split the data into a training set and a test set. 
+- Then, created a machine learning pipeline that uses NLTK, as well as scikit-learn's Pipeline and GridSearchCV to output a final model that uses the message column to predict classifications for 36 categories (multi-output classification). 
+![Screen Shot 2022-01-21 at 11 29 47 AM](https://user-images.githubusercontent.com/66845704/150573089-4ac83989-df6c-4de8-b197-690804617458.png)
+
+
+- Finally, we exported the model to a pickle file
+
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
 
