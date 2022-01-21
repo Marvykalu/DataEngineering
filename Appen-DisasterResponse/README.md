@@ -46,7 +46,7 @@ A little data cleaning was done on the combined dataframe such as removing dupli
 
 - store transformed data in an SQLite database. 
 
-To load the data into an SQLite database, we used the pandas dataframe .to_sql() method, with an SQLAlchemy engine (see code snippet)
+To load the data into an SQLite database, we used the pandas dataframe .to_sql() method, with an SQLAlchemy engine (see code snippet below)
 ![Screen Shot 2022-01-21 at 11 26 54 AM](https://user-images.githubusercontent.com/66845704/150572651-506cb3a1-1bc9-4b5e-b0e8-ff5ffd313072.png)
 
 
@@ -54,8 +54,15 @@ To load the data into an SQLite database, we used the pandas dataframe .to_sql()
 For the machine learning portion,
 - we split the data into a training set and a test set. 
 - Then, created a machine learning pipeline that uses NLTK, as well as scikit-learn's Pipeline and GridSearchCV to output a final model that uses the message column to predict classifications for 36 categories (multi-output classification). 
+
+-- First we created a tokenize function using NLTK that takes the message (string) and returns a list of tokens. See figure below for how the function works
 ![Screen Shot 2022-01-21 at 11 29 47 AM](https://user-images.githubusercontent.com/66845704/150573089-4ac83989-df6c-4de8-b197-690804617458.png)
 
+-- Then we created a machine pipeline that takes in the `message` column as input and output classification results on the other 36 categories in the dataset. Since there are multiple target variables, the [MultiOutputClassifier](http://scikit-learn.org/stable/modules/generated/sklearn.multioutput.MultiOutputClassifier.html) with RandomClassifier was helpful for our prediction. Finally we used GridSearchCVto output a final model.
+
+![Screen Shot 2022-01-21 at 12 17 31 PM](https://user-images.githubusercontent.com/66845704/150579697-6a3297b1-15c9-43a4-871f-119e3f787004.png)
+
+![Screen Shot 2022-01-21 at 12 19 09 PM](https://user-images.githubusercontent.com/66845704/150579715-ff3e13a7-2afc-4948-abc2-46c991a260ee.png)
 
 - Finally, we exported the model to a pickle file
 
