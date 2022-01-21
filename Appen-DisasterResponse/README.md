@@ -17,7 +17,13 @@ The objective of this project was to create and save a multi output supervised M
 
 ## Data
 
-We have two csv data sets and an SQLite database. One disaster_messages.csv contains real messages that were sent during the disaster events. The other disaster_categories.csv contains information about the different disaster response categories. The DisasterResponse.db contains the output from ETL pipleine processes on the two csv files.  
+We have two csv data sets: One disaster_messages.csv contains real messages that were sent during the disaster events, the other disaster_categories.csv contains information about the different disaster response categories. These two datasets were processed through an ETL pipeline and the output of the pipeline was an SQLite database (DisasterResponse.db). 
+
+## Methodology
+Here we will give you details of the steps during the data processing and modelling 
+
+### ETL pipeline
+The first part of your data pipeline is the Extract, Transform, and Load process. Here, you will read the dataset, clean the data, and then store it in a SQLite database. We expect you to do the data cleaning with pandas. To load the data into an SQLite database, you can use the pandas dataframe .to_sql() method, which you can use with an SQLAlchemy engine.
 
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
