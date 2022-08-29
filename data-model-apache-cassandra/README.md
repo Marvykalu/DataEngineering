@@ -24,13 +24,3 @@ The jupyter notebook file `project-cassandra` contains ETL pipeline and data mod
 
 - The ETL pipeline basically iterates through each event file in event_data to process and create a new CSV file which is used to populate the denormalized database optimised for the 3 queries above. 
 
-
-
-from cassandra.cluster import Cassandra
-
-cluster = Cluster(['127.0.0.1'])
-session = cluster.connect()
-To stop and remove the container after the exercise
-
-docker stop cassandra-container
-docker rm cassandra-container
