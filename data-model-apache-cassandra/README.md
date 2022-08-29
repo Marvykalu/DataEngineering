@@ -18,7 +18,9 @@ The jupyter notebook file `project-cassandra` contains ETL pipeline and data mod
 
 #### ETL Pipeline: Data preprocessing
 
-- The data is stored as a collection of csv files partitioned by date. In this step, I processed the event_datafile_new.csv dataset to create a denormalized dataset as shown below.
+- The data is stored as a collection of csv files partitioned by date. In this step, I processed the event_datafile_new.csv dataset to create a denormalized dataset as shown below:
+
+![event_datafile](https://user-images.githubusercontent.com/66845704/187158899-fef6b9f3-2ba6-4eba-b8ee-b3bd3f567e7c.png)
 
 - The ETL pipeline basically iterates through each event file in event_data to process and create a new CSV file which is used to populate the denormalized database optimised for the 3 queries above. 
 
